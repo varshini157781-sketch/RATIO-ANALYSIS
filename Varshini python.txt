@@ -1,0 +1,12 @@
+import pandas as pd
+df=pd.read_csv("C:\\Users\\VARSHINI\\Downloads\\NewCompanyDetails.csv")
+df=df.drop_duplicates()
+df=df.dropna()
+df.to_csv("newdetails.csv")
+print('done')
+print(df)
+df['revenue']=df['revenue'].replace(r'[^0-9]','',regex=True).astype(int)
+df.to_csv("newdetails.csv",index=False)
+print("done")
+print(df)
+df.to_csv("newcompany2.csv",index=False)
